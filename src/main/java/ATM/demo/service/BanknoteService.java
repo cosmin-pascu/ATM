@@ -49,6 +49,8 @@ public class BanknoteService {
         List<Banknote> withdrawnBanknotes = new ArrayList<>();
         List<Banknote> banknotesToUpdate = new ArrayList<>();
 
+        notificationService.notifyUserIfNecessarily(currency, sum);
+
         for (Banknote banknote : getDescendingListOfBanknotes(currency)) {
             Banknote withdrawnBanknote = new Banknote(banknote.getType(), banknote.getCurrency(), 0L);
 

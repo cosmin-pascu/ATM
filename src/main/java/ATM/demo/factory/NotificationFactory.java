@@ -1,5 +1,6 @@
 package ATM.demo.factory;
 
+import ATM.demo.domain.BankNotification;
 import ATM.demo.domain.EmailNotification;
 import ATM.demo.domain.Notification;
 import ATM.demo.domain.SmsNotification;
@@ -18,6 +19,10 @@ public class NotificationFactory {
 
         if (notificationType.equals(NotificationType.SMS)) {
             return new SmsNotification();
+        }
+
+        if (notificationType.equals(NotificationType.BANK_NOTIFICATION)) {
+            return new BankNotification();
         }
 
         return null;

@@ -5,5 +5,5 @@ package ATM.demo.domain.enumeration;
  */
 
 public enum NotificationType {
-    EMAIL, SMS
+    EMAIL, SMS, BANK_NOTIFICATION
 }

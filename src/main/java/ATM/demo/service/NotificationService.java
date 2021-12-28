@@ -22,6 +22,8 @@ public class NotificationService {
 
     private final NotificationAlertConfiguration notificationAlertConfiguration;
 
+    public static final int WITHDRAW_SUM_NOTIFICATION_THRESHOLD = 200;
+
     public void sendNotificationsIfNecessarily(Currency currency) {
         checkFiftyBanknotes(currency);
 
@@ -52,5 +54,13 @@ public class NotificationService {
                         "Atentie, au ramas mai putin de 45 bancnote de 50!");
             }
         });
+    }
+
+    public void notifyUserIfNecessarily(Currency currency, Long sum) {
+        if (sum > WITHDRAW_SUM_NOTIFICATION_THRESHOLD) {
+            Notification notification = notificationFactory.getNotification(NotificationType.BANK_NOTIFICATION);
+            notification.sendNotification("Future implementation for user dest",
+                    "Atentie, s-a incercat retragerea a " + sum + " " + currency.toString());
+        }
     }
 }
