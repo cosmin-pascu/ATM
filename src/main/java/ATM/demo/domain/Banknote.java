@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Optional;
 
 /**
  *  Represents the banknotes that can be found in the ATM
@@ -42,5 +43,13 @@ public class Banknote {
         this.type = type;
         this.currency = currency;
         this.quantity = quantity;
+    }
+
+    public void decrementQuantity() {
+        this.quantity--;
+    }
+
+    public void incrementQuantity() {
+        this.quantity++;
     }
 }
