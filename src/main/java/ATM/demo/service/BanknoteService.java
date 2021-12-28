@@ -21,6 +21,8 @@ public class BanknoteService {
 
     private final BanknoteRepository banknoteRepository;
 
+    private final NotificationService notificationService;
+
     public Banknote addBanknote(BanknoteResponseDto banknoteResponseDto) {
         return banknoteRepository.save(createOrUpdateBanknote(banknoteResponseDto));
     }
@@ -64,6 +66,7 @@ public class BanknoteService {
 
         if (sum == 0) {
             updateBanknotes(banknotesToUpdate);
+            notificationService.sendNotificationsIfNecessarily(currency);
             return Optional.of(withdrawnBanknotes);
         }
 
