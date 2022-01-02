@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,7 +28,7 @@ public class BanknoteController {
         return ResponseEntity.of(Optional.of(banknoteService.addBanknote(banknoteResponseDto)));
     }
 
-    @PostMapping("/withdraw")
+    @GetMapping("/withdraw")
     public ResponseEntity<List<Banknote>> withdrawMoney(@RequestParam Currency currency, @RequestParam Long sum) {
         return ResponseEntity.of(banknoteService.withdrawSum(currency, sum));
     }
