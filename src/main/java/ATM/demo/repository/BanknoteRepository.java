@@ -13,4 +13,6 @@ public interface BanknoteRepository extends JpaRepository<Banknote, Long> {
     Optional<Banknote> findByCurrencyAndType(Currency currency, BanknoteType type);
 
     List<Banknote> findAllByCurrency(Currency currency);
+
+    List<Banknote> findAll();
 }

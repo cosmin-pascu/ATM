@@ -87,4 +87,8 @@ public class BanknoteService {
     public void updateBanknotes(List<Banknote> banknotes) {
         banknotes.forEach(banknote -> banknoteRepository.save(updateBanknoteQuantity(banknote)));
     }
+
+    public List<Banknote> getAllBanknotes() {
+        return banknoteRepository.findAll();
+    }
 }
